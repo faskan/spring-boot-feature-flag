@@ -1,12 +1,10 @@
 package com.example.featureflag;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,7 +23,7 @@ public class FeatureFlagApplication {
 class MyConfiguration {
 
 	@Bean
-	@ConditionalOnProperty(prefix = "features", name = "service", havingValue = "true")
+	@ConditionalOnProperty(prefix = "features", name = "message-service", havingValue = "true")
 	public MessageService messageService(){
 		return new MessageService();
 	}
